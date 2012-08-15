@@ -1,0 +1,23 @@
+﻿<Window x:Name="wdw" x:Class="RottenPhish.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rotten Phish" MinHeight="360" MinWidth="320">
+    <Grid>
+        <Label Content="URL:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbURL" Height="23" Margin="49,12,90,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Button x:Name="btnAnalyze" Content="Analyze" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Height="26" Click="btnAnalyze_Click"/>
+        <DockPanel Margin="10,41,0,0" HorizontalAlignment="Left" Width="130" Height="160" VerticalAlignment="Top">
+            <Label Background="LightGray" DockPanel.Dock="Top">Forms</Label>
+            <ListBox x:Name="lbForms" />
+        </DockPanel>
+        <DockPanel Margin="145,41,10,0" Height="160" VerticalAlignment="Top">
+            <Label Background="LightGray" DockPanel.Dock="Top">Inputs</Label>
+            <ListBox ItemsSource="{Binding Path='SelectedItem.Inputs', ElementName='lbForms'}" x:Name="lbInputs" />
+        </DockPanel>
+        <Button x:Name="btnStart" Content="Start flooding with rotten phish!" Margin="10,206,10,0" Height="22" VerticalAlignment="Top"/>
+        <DockPanel Margin="10,233,10,10">
+            <Label Background="LightGray" HorizontalContentAlignment="Center" DockPanel.Dock="Top">Rotten phish sent</Label>
+            <DataGrid x:Name="dgPhish" />
+        </DockPanel>
+    </Grid>
+</Window>
